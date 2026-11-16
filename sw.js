@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "elahere-calculator-v2-2";
+const CACHE_NAME = "elahere-calculator-v2-3";
 
 const FILES = [
   "./",
