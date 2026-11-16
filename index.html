@@ -183,7 +183,20 @@ function calculate(){
  const valid=concentration>=1&&concentration<=2;
 
  // 指定条件によるバッグ選択
- const recommendedBag=volume<100?100:250;
+
+const concentration250 = mg / 250;
+const concentration100 = mg / 100;
+
+let recommendedBag;
+
+if (concentration250 >= 1 && concentration250 <= 2) {
+  recommendedBag = "250 mL";
+} else if (concentration100 >= 1 && concentration100 <= 2) {
+  recommendedBag = "100 mL";
+} else {
+  recommendedBag = "該当なし（要確認）";
+}
+
 
  show("ibw",ibw.toFixed(1)+" kg");
  show("aibw",aibw.toFixed(1)+" kg");
@@ -191,7 +204,7 @@ function calculate(){
  show("drugvol",drugvol.toFixed(2)+" mL");
  show("vials",vials+" 本");
  show("diluent",diluent.toFixed(2)+" mL");
- show("recommendedBag",recommendedBag+" mLバッグ");
+ show("recommendedBag",recommendedBag);
  show("concentration",concentration.toFixed(3)+" mg/mL");
 
  if(diluent<0){
@@ -215,7 +228,7 @@ function calculate(){
   "最終液量："+volume+" mL",
   "5%ブドウ糖液量（理論値）："+
     diluent.toFixed(2)+" mL",
-  "推奨バッグ："+recommendedBag+" mL",
+  "推奨バッグ："+recommendedBag,
   "最終濃度："+concentration.toFixed(3)+" mg/mL",
   "判定："+status.textContent,
   "※未検証。調製前に独立確認が必要。"
