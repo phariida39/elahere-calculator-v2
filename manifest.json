@@ -1,0 +1,11 @@
+
+{
+  "name": "エラヒア AIBW・調製計算ツール v2",
+  "short_name": "エラヒア計算v2",
+  "lang": "ja",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f5f8",
+  "theme_color": "#164b67"
+}
