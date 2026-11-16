@@ -183,20 +183,9 @@ function calculate(){
  const valid=concentration>=1&&concentration<=2;
 
  // 指定条件によるバッグ選択
-
-const concentration250 = mg / 250;
-const concentration100 = mg / 100;
-
-let recommendedBag;
-
-if (concentration250 >= 1 && concentration250 <= 2) {
-  recommendedBag = "250 mL";
-} else if (concentration100 >= 1 && concentration100 <= 2) {
-  recommendedBag = "100 mL";
-} else {
-  recommendedBag = "該当なし（要確認）";
-}
-
+const recommendedBag = diluent <= 100
+  ? "100 mL"
+  : "250 mL";
 
  show("ibw",ibw.toFixed(1)+" kg");
  show("aibw",aibw.toFixed(1)+" kg");
