@@ -135,7 +135,7 @@ step="any" placeholder="例：60">
 <p class="note">
 本ツールは未検証の計算補助ツールです。
 濃度判定基準は1～2 mg/mLです。
-投与量は小数第1位、原液量は小数第2位に丸めています。
+投与量は5 mg刻みで切り捨て、原液量は小数第2位に丸めています。
 バッグの過充填量は考慮していません。
 表示する抜き取り量は、250 mLバッグの実液量を
 250 mLと仮定した理論値です。
@@ -184,7 +184,7 @@ function calculate(){
   return;
  }
 
- const mg=Math.round((aibw*dose+Number.EPSILON)*10)/10;
+ const mg=Math.floor((aibw*dose)/5)*5;
  const drugvol=Math.round((mg/5+Number.EPSILON)*100)/100;
  const vials=Math.ceil(mg/100);
 
